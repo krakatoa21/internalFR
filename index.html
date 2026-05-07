@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoradaUno — Vision 2028</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink: #0D0A12;
+  --ink2: #1A1425;
+  --purple: #671E75;
+  --purple2: #772583;
+  --lila: #B14EB5;
+  --lavender: #E2ACD7;
+  --teal: #00C7B1;
+  --peach: #FFBE97;
+  --sky: #74D1EA;
+  --fog: #F4F4F6;
+  --fog2: #EBEBED;
+  --stone: #BCBEC0;
+  --ash: #6B6B78;
+  --white: #FFFFFF;
+  --border: rgba(0,0,0,0.07);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 20px 64px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand { font-size:15px; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
+.nav-brand em { color:var(--lila); font-style:normal; }
+.nav-pills { display:flex; gap:4px; }
+.nav-pill {
+  padding: 6px 14px; border-radius:20px;
+  font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ash); text-decoration:none;
+  transition: all 0.2s;
+}
+.nav-pill:hover { background:var(--purple); color:white; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 90vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding: 140px 64px 100px;
+  position:relative;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  overflow:hidden;
+}
+
+.hero-bg { display:none; }
+.hero-grid { display:none; }
+.hero-bignumber { display:none; }
+
+.hero-content { position:relative; z-index:2; max-width:820px; }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ash);
+  margin-bottom:28px;
+}
+
+.hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--lila); }
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.5; transform:scale(0.7); }
+}
+
+.hero-title {
+  font-family:'Instrument Serif', serif;
+  font-size:clamp(52px, 6vw, 88px);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  margin-bottom:28px;
+}
+.hero-title .accent { color:var(--lila); font-style:italic; }
+
+.hero-sub {
+  font-size:18px; font-weight:400; color:var(--ash);
+  max-width:560px; line-height:1.75;
+  margin-bottom:56px;
+}
+
+.hero-metrics {
+  display:flex; gap:0;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  width:fit-content;
+  background: var(--white);
+}
+.hm-item {
+  padding:20px 36px;
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column; gap:6px;
+}
+.hm-item:last-child { border-right:none; }
+.hm-val {
+  font-family:'Instrument Serif', serif;
+  font-size:34px; line-height:1;
+  color:var(--ink);
+}
+.hm-val .u { color:var(--lila); font-style:normal; }
+.hm-key {
+  font-size:11px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ash);
+}
+
+/* ─── SECTION BASE ─── */
+.section {
+  padding: 100px 64px;
+  position:relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.s-label {
+  font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--lila);
+  margin-bottom:20px;
+  display:flex; align-items:center; gap:10px;
+}
+.s-label::before { content:''; width:16px; height:2px; background:var(--lila); }
+
+.s-title {
+  font-family:'Instrument Serif', serif;
+  font-size:clamp(36px, 4vw, 56px);
+  font-weight:400;
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:20px;
+  max-width:820px;
+  color:var(--ink);
+}
+
+.s-body {
+  font-size:16px; font-weight:400;
+  color:var(--ash);
+  max-width:600px; line-height:1.85;
+  margin-bottom:56px;
+}
+
+/* ─── SECTION 1: THE 10X ─── */
+#tenfold { background: var(--white); overflow:hidden; }
+
+.tenfold-split {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center;
+  margin-top:56px;
+}
+
+.journey { display:flex; flex-direction:column; gap:0; position:relative; }
+
+.journey-line {
+  position:absolute; left:23px; top:0; bottom:0;
+  width:1px; background: var(--fog2); z-index:0;
+}
+
+.j-step {
+  display:flex; gap:24px; align-items:flex-start;
+  position:relative; z-index:1; padding-bottom:36px;
+}
+.j-step:last-child { padding-bottom:0; }
+
+.j-node {
+  width:48px; height:48px; flex-shrink:0; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Instrument Serif', serif; font-size:18px;
+}
+
+.j-node.past { background:var(--fog); color:var(--ash); border:1px solid var(--fog2); }
+.j-node.now  { background:var(--purple); color:white; border:1px solid var(--purple2); }
+.j-node.future { background:var(--ink); color:white; border:1px solid var(--ink); }
+
+.j-content { padding-top:10px; }
+.j-year { font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--stone); margin-bottom:4px; }
+.j-headline { font-family:'Instrument Serif', serif; font-size:26px; font-weight:400; line-height:1.15; margin-bottom:6px; color:var(--ink); }
+.j-detail { font-size:13px; color:var(--ash); line-height:1.65; }
+.j-tag {
+  display:inline-flex; margin-top:10px;
+  padding:3px 10px; border-radius:4px;
+  font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+}
+.tag-done { background:var(--fog); color:var(--ash); }
+.tag-now  { background:rgba(103,30,117,0.08); color:var(--purple); }
+.tag-target { background:rgba(0,199,177,0.08); color:#009e8d; }
+
+.delta-list { display:flex; flex-direction:column; gap:12px; }
+.delta-item {
+  display:grid; grid-template-columns:56px 1fr;
+  gap:20px; align-items:start;
+  padding:20px 24px;
+  border-radius:10px;
+  background:var(--fog);
+  border:1px solid transparent;
+  transition:all 0.2s;
+}
+.delta-item:hover { border-color:rgba(103,30,117,0.12); background:white; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
+.delta-from { font-family:'Instrument Serif', serif; font-size:24px; line-height:1; color:var(--stone); text-align:center; padding-top:2px; }
+.delta-arrow { font-size:13px; color:var(--lila); text-align:center; margin-top:2px; }
+.delta-to { font-family:'Instrument Serif', serif; font-size:24px; line-height:1; color:var(--purple); text-align:center; }
+.delta-label { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.delta-sub { font-size:13px; color:var(--ash); line-height:1.55; }
+
+/* ─── SECTION 2: TAM ─── */
+#market { background: var(--fog); }
+#market .s-title { color:var(--ink); }
+#market .s-body { color:var(--ash); }
+#market .s-label { color:var(--purple); }
+#market .s-label::before { background:var(--purple); }
+
+.tam-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+
+.tam-bars { display:flex; flex-direction:column; gap:24px; padding-top:8px; }
+.tam-bar-row { display:flex; flex-direction:column; gap:8px; }
+.tbr-header { display:flex; justify-content:space-between; align-items:baseline; }
+.tbr-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+.tbr-val { font-family:'Instrument Serif', serif; font-size:26px; color:var(--ink); line-height:1; }
+.tbr-sub { font-size:12px; color:var(--ash); margin-top:1px; }
+.tbr-track { height:8px; border-radius:4px; background:rgba(0,0,0,0.06); overflow:hidden; }
+.tbr-fill { height:100%; border-radius:4px; }
+
+.tam-legend { display:flex; flex-direction:column; gap:24px; padding-top:8px; }
+.tl-item { display:flex; gap:14px; align-items:flex-start; }
+.tl-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.tl-head { display:flex; align-items:baseline; gap:12px; margin-bottom:4px; }
+.tl-name { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink); }
+.tl-num { font-family:'Instrument Serif', serif; font-size:26px; color:var(--ink); line-height:1; }
+.tl-desc { font-size:13px; color:var(--ash); line-height:1.65; }
+
+.tam-note {
+  margin-top:40px; padding:20px 24px; border-radius:10px;
+  background:white; border:1px solid var(--border);
+  display:flex; gap:14px; align-items:flex-start;
+}
+.tam-note-icon { font-size:18px; flex-shrink:0; margin-top:2px; }
+.tam-note-text { font-size:13px; color:var(--ash); line-height:1.75; }
+.tam-note-text strong { color:var(--purple); font-weight:600; }
+
+/* ─── SECTION 3: HOW WE GET THERE ─── */
+#howwegetthere { background: var(--white); }
+
+.flywheel-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; margin-top:56px; }
+
+.layers-stack { display:flex; flex-direction:column; gap:2px; }
+
+.layer {
+  display:flex; align-items:center; gap:16px;
+  padding:18px 20px; border-radius:8px;
+  cursor:default; transition:all 0.2s;
+  border:1px solid var(--border);
+  background: var(--white);
+  position:relative; overflow:hidden;
+}
+.layer::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+.layer:hover { background:var(--fog); border-color:rgba(103,30,117,0.1); }
+
+.layer-1::before { background:var(--purple); }
+.layer-2::before { background:var(--purple2); }
+.layer-3::before { background:var(--lila); }
+.layer-4::before { background:var(--teal); }
+.layer-5::before { background:var(--lila); }
+.layer-6::before { background:var(--peach); }
+
+.layer-icon { font-size:20px; flex-shrink:0; width:32px; text-align:center; }
+.layer-body { flex:1; }
+.layer-name { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:2px; }
+.layer-desc { font-size:12px; color:var(--ash); line-height:1.5; }
+.layer-status { font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 8px; border-radius:3px; flex-shrink:0; }
+.ls-live { background:rgba(0,199,177,0.1); color:#009e8d; }
+.ls-build { background:rgba(103,30,117,0.08); color:var(--purple); }
+.ls-road { background:rgba(0,0,0,0.05); color:var(--ash); }
+
+.activation-flow { display:flex; flex-direction:column; gap:16px; }
+.af-step { display:grid; grid-template-columns:36px 1fr; gap:14px; align-items:start; }
+.af-num {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--ink); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; flex-shrink:0;
+}
+.af-title { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:3px; padding-top:6px; }
+.af-desc { font-size:13px; color:var(--ash); line-height:1.6; }
+.af-connector { width:1px; height:16px; background:var(--fog2); margin-left:17px; }
+
+.broker-bar {
+  margin-top:36px; padding:24px; border-radius:10px;
+  background:var(--fog); border:1px solid var(--border);
+  display:flex; gap:28px; flex-wrap:wrap; align-items:center;
+}
+.bb-item { display:flex; flex-direction:column; gap:2px; }
+.bb-val { font-family:'Instrument Serif', serif; font-size:30px; color:var(--ink); line-height:1; }
+.bb-val em { color:var(--lila); font-style:normal; }
+.bb-key { font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ash); }
+.bb-div { width:1px; background:var(--fog2); align-self:stretch; }
+
+/* ─── SECTION 4: THE UNLOCK ─── */
+#unlock { background:var(--fog); }
+.unlock-bg { display:none; }
+#unlock .s-title { color:var(--ink); }
+#unlock .s-label { color:var(--purple); }
+#unlock .s-label::before { background:var(--purple); }
+
+.unlock-intro { font-size:17px; font-weight:400; color:var(--ash); max-width:680px; line-height:1.8; margin-bottom:56px; }
+.unlock-intro strong { color:var(--ink); font-weight:600; }
+
+.unlock-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+
+.ug-card {
+  padding:32px 28px; border-radius:12px;
+  background:white; border:1px solid var(--border);
+  display:flex; flex-direction:column; gap:16px;
+  transition:all 0.2s;
+}
+.ug-card:hover { border-color:rgba(103,30,117,0.15); box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+.ug-icon { font-size:28px; line-height:1; }
+.ug-title { font-size:17px; font-weight:600; color:var(--ink); line-height:1.25; }
+.ug-body { font-size:13px; color:var(--ash); line-height:1.75; flex:1; }
+.ug-number { font-family:'Instrument Serif', serif; font-size:40px; font-weight:400; line-height:1; }
+.ug-sub { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ash); margin-top:3px; }
+
+/* ─── SECTION 5: SERIES B ─── */
+#seriesb { background:var(--white); }
+#seriesb .s-title { color:var(--ink); }
+#seriesb .s-label { color:var(--purple); }
+#seriesb .s-label::before { background:var(--purple); }
+
+.sb-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; margin-top:56px; }
+
+.sb-statement {
+  font-family:'Instrument Serif', serif;
+  font-size:clamp(24px, 2.5vw, 36px);
+  font-weight:400; line-height:1.35;
+  color:var(--ink); margin-bottom:36px;
+  font-style:italic;
+}
+
+.sb-items { display:flex; flex-direction:column; gap:12px; }
+
+.sb-item {
+  display:flex; gap:14px; align-items:flex-start;
+  padding:18px 20px; border-radius:8px;
+  background:var(--fog); border:1px solid transparent;
+  transition:all 0.2s;
+}
+.sb-item:hover { background:white; border-color:rgba(103,30,117,0.1); box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+.sb-bullet {
+  width:30px; height:30px; border-radius:50%;
+  background:rgba(103,30,117,0.08);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; font-size:13px;
+}
+.sb-head { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+.sb-desc { font-size:13px; color:var(--ash); line-height:1.65; }
+
+.arr-ramp { display:flex; flex-direction:column; gap:0; }
+.arr-year {
+  display:grid; grid-template-columns:64px 1fr 80px;
+  gap:16px; align-items:center;
+  padding:14px 0; border-bottom:1px solid var(--border);
+}
+.arr-year:last-child { border-bottom:none; }
+.ay-year { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--stone); }
+.ay-bar-wrap { height:6px; background:var(--fog2); border-radius:3px; overflow:hidden; }
+.ay-bar { height:100%; border-radius:3px; }
+.ay-val { font-family:'Instrument Serif', serif; font-size:22px; color:var(--ink); text-align:right; line-height:1; }
+.ay-val em { color:var(--lila); font-style:normal; }
+
+.arr-note {
+  margin-top:24px; padding:18px 22px; border-radius:8px;
+  background:var(--fog); border:1px solid var(--border);
+  font-size:13px; color:var(--ash); line-height:1.75;
+}
+.arr-note strong { color:var(--purple); font-weight:600; }
+
+/* ─── SCENARIO BOXES ─── */
+/* inline styles in HTML handle these */
+
+/* ─── FOOTER ─── */
+footer {
+  background:var(--ink);
+  padding:36px 64px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.footer-brand { font-size:14px; font-weight:700; color:rgba(255,255,255,0.4); }
+.footer-brand em { color:var(--lila); font-style:normal; }
+.footer-meta { font-size:11px; color:rgba(255,255,255,0.25); letter-spacing:0.08em; text-transform:uppercase; }
+
+/* ─── PASSWORD GATE ─── */
+#gate {
+  position:fixed; inset:0; z-index:9999;
+  background:white;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:32px;
+}
+.gate-logo { height:32px; }
+.gate-box {
+  display:flex; flex-direction:column; align-items:center;
+  gap:16px; width:100%; max-width:320px;
+}
+.gate-label {
+  font-size:11px; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--ash);
+}
+.gate-input {
+  width:100%; padding:14px 18px;
+  border:1px solid var(--border); border-radius:8px;
+  font-family:'Inter', sans-serif; font-size:15px;
+  color:var(--ink); outline:none;
+  transition:border-color 0.2s;
+  text-align:center; letter-spacing:0.1em;
+}
+.gate-input:focus { border-color:var(--lila); }
+.gate-input.error { border-color:#e53e3e; animation: shake 0.3s ease; }
+.gate-btn {
+  width:100%; padding:14px;
+  background:var(--ink); color:white;
+  border:none; border-radius:8px;
+  font-family:'Inter', sans-serif;
+  font-size:13px; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase;
+  cursor:pointer; transition:background 0.2s;
+}
+.gate-btn:hover { background:var(--purple); }
+.gate-note {
+  font-size:12px; color:var(--stone);
+  text-align:center;
+}
+@keyframes shake {
+  0%,100% { transform:translateX(0); }
+  25% { transform:translateX(-8px); }
+  75% { transform:translateX(8px); }
+}
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+.r1 { transition-delay:0.05s; }
+.r2 { transition-delay:0.12s; }
+.r3 { transition-delay:0.20s; }
+.r4 { transition-delay:0.28s; }
+.r5 { transition-delay:0.36s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:880px) {
+  nav { padding:16px 24px; }
+  .nav-pills { display:none; }
+  .section { padding:72px 24px; }
+  #hero { padding:100px 24px 72px; }
+  .tenfold-split, .tam-layout, .flywheel-wrapper, .sb-layout { grid-template-columns:1fr; gap:48px; }
+  .unlock-grid { grid-template-columns:1fr; }
+  .hero-metrics { flex-wrap:wrap; }
+  .hm-item { border-right:none; border-bottom:1px solid var(--border); }
+  .hm-item:last-child { border-bottom:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <svg class="gate-logo" style="height:36px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 683.4 83.54"><g ><path fill="#671e75" d="m1.21,74.27l39.18-40.22L7.03,1.25C4.44-1.42,0,.47,0,4.24v73.03s.01.09.01.14c-.04-1.09.32-2.22,1.2-3.13"/><path fill="#b14eb5" d="m73.75,1.25l-33.36,32.81,39.18,40.22c.88.91,1.24,2.04,1.2,3.13,0-.05.01-.09.01-.14V4.24c0-3.77-4.44-5.66-7.03-2.99"/><path fill="#772583" d="m79.57,74.27l-39.18-40.22L1.21,74.27c-.89.91-1.25,2.04-1.2,3.13,0,.18.02.35.05.53.02.11.03.21.06.32.03.13.07.25.11.37.06.19.14.37.22.54.06.11.11.23.18.33.05.09.11.17.17.25.1.14.21.29.34.42.03.04.06.07.1.11.36.36.78.66,1.25.86.03.01.05.02.08.03.2.08.41.15.63.2.05.01.1.03.15.04.24.05.49.08.75.08.01,0,.02,0,.03,0h72.53s.02,0,.03,0c.26,0,.51-.03.75-.08.05,0,.1-.02.15-.04.22-.05.43-.12.63-.2.03-.01.05-.02.08-.03.47-.21.89-.5,1.25-.86.03-.03.06-.07.09-.11.12-.13.23-.27.34-.42.06-.08.12-.17.17-.25.07-.11.12-.22.18-.33.09-.17.16-.35.22-.54.04-.12.08-.25.11-.37.03-.11.04-.21.06-.32.03-.17.05-.35.05-.53.04-1.09-.32-2.22-1.2-3.13"/><path fill="#772583" d="m178.54,9.41v70.46c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35v-39.43c0-1.47-2.03-1.88-2.59-.51l-16.66,40.46c-.21.5-.7.83-1.24.83h-9.31c-.54,0-1.04-.33-1.24-.83l-16.77-40.5c-.56-1.36-2.59-.96-2.59.52v39.47c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V9.41c0-.74.6-1.35,1.35-1.35h14.43c.54,0,1.03.32,1.24.82l21.68,50.68c.47,1.09,2.01,1.09,2.48,0l21.68-50.68c.21-.5.7-.82,1.24-.82h14.32c.74,0,1.35.6,1.35,1.35Z"/><path fill="#772583" d="m200.55,78.44c-4.47-2.48-7.98-5.99-10.53-10.53-2.55-4.54-3.83-9.78-3.83-15.72s1.31-11.18,3.93-15.72c2.62-4.54,6.2-8.05,10.74-10.53,4.54-2.48,9.61-3.72,15.2-3.72s10.65,1.24,15.2,3.72c4.54,2.48,8.12,5.99,10.74,10.53,2.62,4.54,3.93,9.78,3.93,15.72s-1.34,11.18-4.03,15.72c-2.69,4.54-6.32,8.05-10.9,10.53-4.58,2.48-9.69,3.72-15.35,3.72s-10.62-1.24-15.09-3.72Zm22.59-11c2.34-1.29,4.21-3.23,5.61-5.82,1.4-2.59,2.09-5.73,2.09-9.43,0-5.52-1.45-9.76-4.35-12.73-2.9-2.97-6.45-4.45-10.64-4.45s-7.7,1.49-10.53,4.45c-2.83,2.97-4.25,7.22-4.25,12.73s1.38,9.76,4.14,12.73c2.76,2.97,6.24,4.45,10.43,4.45,2.66,0,5.15-.64,7.49-1.94Z"/><path fill="#772583" d="m275.65,24.94c2.67-1.53,5.67-2.39,9.01-2.58.77-.04,1.42.6,1.42,1.37v14.18l-3.88-.19c-4.61,0-8.09,1.08-10.43,3.25-2.34,2.17-3.51,5.94-3.51,11.32v27.58c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V24.5c0-.74.6-1.35,1.35-1.35h11.98c.74,0,1.35.6,1.35,1.35v7.67c1.88-3.07,4.35-5.48,7.39-7.23Z"/><path fill="#772583" d="m292.52,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m360.43,36.36c2.34-4.54,5.54-8.03,9.59-10.48,4.07-2.45,8.59-3.68,13.57-3.67,3.44,0,6.89.73,10.03,2.13,3.76,1.68,6.72,3.97,8.88,6.88V5.01c0-.74.6-1.35,1.35-1.35h12.19c.74,0,1.35.6,1.35,1.35v74.86c0,.74-.6,1.35-1.35,1.35h-12.19c-.74,0-1.35-.6-1.35-1.35v-7.25c-1.82,2.87-4.37,5.17-7.65,6.92s-7.09,2.62-11.42,2.62c-4.89,0-9.37-1.26-13.42-3.77-4.05-2.51-7.25-6.06-9.59-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m428.35,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m505.69,9.75c.55,0,1,.45,1,1v45.22c0,6.5,1.59,11.32,4.77,14.46,3.18,3.14,7.6,4.72,13.26,4.72s9.97-1.57,13.15-4.72c3.18-3.14,4.77-7.97,4.77-14.46V10.76c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v45.11c0,6.08-1.22,11.2-3.67,15.35-2.45,4.16-5.75,7.25-9.9,9.27-4.16,2.03-8.82,3.04-13.99,3.04s-9.84-1.01-13.99-3.04c-4.16-2.02-7.44-5.12-9.85-9.27-2.41-4.16-3.62-9.28-3.62-15.35V10.76c0-.55.45-1,1-1h7.54Z"/><path fill="#772583" d="m609.93,29.08c4.33,4.23,6.5,10.32,6.5,18.29v32.85c0,.55-.45,1-1,1h-7.43c-.55,0-1-.45-1-1v-31.49c0-5.73-1.43-10.11-4.3-13.15-2.87-3.04-6.78-4.56-11.74-4.56s-9.03,1.57-12,4.72c-2.97,3.14-4.45,7.72-4.45,13.73v30.76c0,.55-.45,1-1,1h-7.54c-.55,0-1-.45-1-1V24.79c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v7.17c1.89-2.94,4.45-5.21,7.71-6.81,3.25-1.61,6.83-2.41,10.74-2.41,6.99,0,12.65,2.12,16.98,6.34Z"/><path fill="#772583" d="m639.32,78.5c-4.37-2.44-7.79-5.92-10.27-10.43-2.48-4.51-3.72-9.73-3.72-15.67s1.28-11.06,3.83-15.56c2.55-4.51,6.03-7.96,10.43-10.38,4.4-2.41,9.33-3.62,14.78-3.62s10.37,1.2,14.78,3.62c4.4,2.41,7.88,5.85,10.43,10.32,2.55,4.47,3.82,9.68,3.82,15.62s-1.31,11.16-3.93,15.67c-2.62,4.51-6.17,7.98-10.64,10.43-4.47,2.45-9.43,3.67-14.88,3.67s-10.25-1.22-14.62-3.67Zm24.26-7.13c3-1.61,5.43-4.02,7.28-7.23,1.85-3.21,2.78-7.13,2.78-11.74s-.91-8.52-2.73-11.74c-1.82-3.21-4.19-5.61-7.13-7.18-2.94-1.57-6.11-2.36-9.54-2.36s-6.69.79-9.59,2.36c-2.9,1.57-5.22,3.97-6.97,7.18-1.75,3.21-2.62,7.13-2.62,11.74s.85,8.63,2.57,11.84c1.71,3.21,4,5.61,6.87,7.18,2.86,1.57,6.01,2.36,9.43,2.36s6.64-.8,9.64-2.41Z"/></g></svg>
+  <div class="gate-box">
+    <div class="gate-label">Investor Access</div>
+    <input id="gate-input" class="gate-input" type="password" placeholder="Access code" autocomplete="off">
+    <button class="gate-btn" onclick="checkPassword()">Enter</button>
+    <div class="gate-note">This page is confidential and intended for current and prospective investors only.</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><svg style="height:28px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 683.4 83.54"><g ><path fill="#671e75" d="m1.21,74.27l39.18-40.22L7.03,1.25C4.44-1.42,0,.47,0,4.24v73.03s.01.09.01.14c-.04-1.09.32-2.22,1.2-3.13"/><path fill="#b14eb5" d="m73.75,1.25l-33.36,32.81,39.18,40.22c.88.91,1.24,2.04,1.2,3.13,0-.05.01-.09.01-.14V4.24c0-3.77-4.44-5.66-7.03-2.99"/><path fill="#772583" d="m79.57,74.27l-39.18-40.22L1.21,74.27c-.89.91-1.25,2.04-1.2,3.13,0,.18.02.35.05.53.02.11.03.21.06.32.03.13.07.25.11.37.06.19.14.37.22.54.06.11.11.23.18.33.05.09.11.17.17.25.1.14.21.29.34.42.03.04.06.07.1.11.36.36.78.66,1.25.86.03.01.05.02.08.03.2.08.41.15.63.2.05.01.1.03.15.04.24.05.49.08.75.08.01,0,.02,0,.03,0h72.53s.02,0,.03,0c.26,0,.51-.03.75-.08.05,0,.1-.02.15-.04.22-.05.43-.12.63-.2.03-.01.05-.02.08-.03.47-.21.89-.5,1.25-.86.03-.03.06-.07.09-.11.12-.13.23-.27.34-.42.06-.08.12-.17.17-.25.07-.11.12-.22.18-.33.09-.17.16-.35.22-.54.04-.12.08-.25.11-.37.03-.11.04-.21.06-.32.03-.17.05-.35.05-.53.04-1.09-.32-2.22-1.2-3.13"/><path fill="#772583" d="m178.54,9.41v70.46c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35v-39.43c0-1.47-2.03-1.88-2.59-.51l-16.66,40.46c-.21.5-.7.83-1.24.83h-9.31c-.54,0-1.04-.33-1.24-.83l-16.77-40.5c-.56-1.36-2.59-.96-2.59.52v39.47c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V9.41c0-.74.6-1.35,1.35-1.35h14.43c.54,0,1.03.32,1.24.82l21.68,50.68c.47,1.09,2.01,1.09,2.48,0l21.68-50.68c.21-.5.7-.82,1.24-.82h14.32c.74,0,1.35.6,1.35,1.35Z"/><path fill="#772583" d="m200.55,78.44c-4.47-2.48-7.98-5.99-10.53-10.53-2.55-4.54-3.83-9.78-3.83-15.72s1.31-11.18,3.93-15.72c2.62-4.54,6.2-8.05,10.74-10.53,4.54-2.48,9.61-3.72,15.2-3.72s10.65,1.24,15.2,3.72c4.54,2.48,8.12,5.99,10.74,10.53,2.62,4.54,3.93,9.78,3.93,15.72s-1.34,11.18-4.03,15.72c-2.69,4.54-6.32,8.05-10.9,10.53-4.58,2.48-9.69,3.72-15.35,3.72s-10.62-1.24-15.09-3.72Zm22.59-11c2.34-1.29,4.21-3.23,5.61-5.82,1.4-2.59,2.09-5.73,2.09-9.43,0-5.52-1.45-9.76-4.35-12.73-2.9-2.97-6.45-4.45-10.64-4.45s-7.7,1.49-10.53,4.45c-2.83,2.97-4.25,7.22-4.25,12.73s1.38,9.76,4.14,12.73c2.76,2.97,6.24,4.45,10.43,4.45,2.66,0,5.15-.64,7.49-1.94Z"/><path fill="#772583" d="m275.65,24.94c2.67-1.53,5.67-2.39,9.01-2.58.77-.04,1.42.6,1.42,1.37v14.18l-3.88-.19c-4.61,0-8.09,1.08-10.43,3.25-2.34,2.17-3.51,5.94-3.51,11.32v27.58c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V24.5c0-.74.6-1.35,1.35-1.35h11.98c.74,0,1.35.6,1.35,1.35v7.67c1.88-3.07,4.35-5.48,7.39-7.23Z"/><path fill="#772583" d="m292.52,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m360.43,36.36c2.34-4.54,5.54-8.03,9.59-10.48,4.07-2.45,8.59-3.68,13.57-3.67,3.44,0,6.89.73,10.03,2.13,3.76,1.68,6.72,3.97,8.88,6.88V5.01c0-.74.6-1.35,1.35-1.35h12.19c.74,0,1.35.6,1.35,1.35v74.86c0,.74-.6,1.35-1.35,1.35h-12.19c-.74,0-1.35-.6-1.35-1.35v-7.25c-1.82,2.87-4.37,5.17-7.65,6.92s-7.09,2.62-11.42,2.62c-4.89,0-9.37-1.26-13.42-3.77-4.05-2.51-7.25-6.06-9.59-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m428.35,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="#772583" d="m505.69,9.75c.55,0,1,.45,1,1v45.22c0,6.5,1.59,11.32,4.77,14.46,3.18,3.14,7.6,4.72,13.26,4.72s9.97-1.57,13.15-4.72c3.18-3.14,4.77-7.97,4.77-14.46V10.76c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v45.11c0,6.08-1.22,11.2-3.67,15.35-2.45,4.16-5.75,7.25-9.9,9.27-4.16,2.03-8.82,3.04-13.99,3.04s-9.84-1.01-13.99-3.04c-4.16-2.02-7.44-5.12-9.85-9.27-2.41-4.16-3.62-9.28-3.62-15.35V10.76c0-.55.45-1,1-1h7.54Z"/><path fill="#772583" d="m609.93,29.08c4.33,4.23,6.5,10.32,6.5,18.29v32.85c0,.55-.45,1-1,1h-7.43c-.55,0-1-.45-1-1v-31.49c0-5.73-1.43-10.11-4.3-13.15-2.87-3.04-6.78-4.56-11.74-4.56s-9.03,1.57-12,4.72c-2.97,3.14-4.45,7.72-4.45,13.73v30.76c0,.55-.45,1-1,1h-7.54c-.55,0-1-.45-1-1V24.79c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v7.17c1.89-2.94,4.45-5.21,7.71-6.81,3.25-1.61,6.83-2.41,10.74-2.41,6.99,0,12.65,2.12,16.98,6.34Z"/><path fill="#772583" d="m639.32,78.5c-4.37-2.44-7.79-5.92-10.27-10.43-2.48-4.51-3.72-9.73-3.72-15.67s1.28-11.06,3.83-15.56c2.55-4.51,6.03-7.96,10.43-10.38,4.4-2.41,9.33-3.62,14.78-3.62s10.37,1.2,14.78,3.62c4.4,2.41,7.88,5.85,10.43,10.32,2.55,4.47,3.82,9.68,3.82,15.62s-1.31,11.16-3.93,15.67c-2.62,4.51-6.17,7.98-10.64,10.43-4.47,2.45-9.43,3.67-14.88,3.67s-10.25-1.22-14.62-3.67Zm24.26-7.13c3-1.61,5.43-4.02,7.28-7.23,1.85-3.21,2.78-7.13,2.78-11.74s-.91-8.52-2.73-11.74c-1.82-3.21-4.19-5.61-7.13-7.18-2.94-1.57-6.11-2.36-9.54-2.36s-6.69.79-9.59,2.36c-2.9,1.57-5.22,3.97-6.97,7.18-1.75,3.21-2.62,7.13-2.62,11.74s.85,8.63,2.57,11.84c1.71,3.21,4,5.61,6.87,7.18,2.86,1.57,6.01,2.36,9.43,2.36s6.64-.8,9.64-2.41Z"/></g></svg></div>
+  <div class="nav-pills">
+    <a href="#tenfold" class="nav-pill">The 10×</a>
+    <a href="#market" class="nav-pill">TAM / SAM</a>
+    <a href="#howwegetthere" class="nav-pill">Platform</a>
+    <a href="#unlock" class="nav-pill">The Unlock</a>
+    <a href="#seriesb" class="nav-pill">Series B</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-bignumber">10×</div>
+
+  <div class="hero-content">
+
+    <h1 class="hero-title">
+      From rent guarantee<br>
+      to <span class="accent">rental infrastructure</span>
+    </h1>
+    <p class="hero-sub">We built a $10M run-rate revenue business by primarily solving one problem for the market. Now we're using that beachhead to become the platform every rental in Mexico runs on.</p>
+
+    <div class="hero-metrics">
+      <div class="hm-item">
+        <div class="hm-val">$10<span class="u">M</span></div>
+        <div class="hm-key">Revenue Run-Rate Today</div>
+      </div>
+      <div class="hm-item">
+        <div class="hm-val">$13<span class="u">M</span></div>
+        <div class="hm-key">Run-Rate Summer 2026</div>
+      </div>
+      <div class="hm-item">
+        <div class="hm-val">20<span class="u">K</span></div>
+        <div class="hm-key">Leases / Year Now</div>
+      </div>
+      <div class="hm-item">
+        <div class="hm-val">200<span class="u">K</span></div>
+        <div class="hm-key">Target 2028 — 10×</div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ═══ SECTION 1: THE 10× ═══ -->
+<section class="section" id="tenfold">
+  <div class="s-label">The 10× Growth Story</div>
+  <h2 class="s-title reveal">Today we're a closing tool that solves a critical painpoint. By 2028 we're the platform brokers and landlords use to run their entire rental business.</h2>
+
+  <div class="tenfold-split">
+
+    <!-- Left: journey -->
+    <div class="reveal r1">
+      <div class="journey">
+        <div class="journey-line"></div>
+
+        <div class="j-step">
+          <div class="j-node past">→</div>
+          <div class="j-content">
+            <div class="j-year">2022–2024</div>
+            <div class="j-headline">The Wedge</div>
+            <div class="j-detail">Rent guarantee product launched. Built trust with brokers, landlords, and tenants simultaneously. Accumulated underwriting data nobody else has.</div>
+            <span class="j-tag tag-done">Achieved</span>
+          </div>
+        </div>
+
+        <div class="j-step">
+          <div class="j-node now">★</div>
+          <div class="j-content">
+            <div class="j-year">2025 — Now</div>
+            <div class="j-headline">20,000 leases / year</div>
+            <div class="j-detail">$10M run-rate revenue today, $13M by summer 2026. 5,000+ active brokers. 40% contribution margin. Approaching profitability. The core business is healthy and self-funding.</div>
+            <span class="j-tag tag-now">Current position</span>
+          </div>
+        </div>
+
+        <div class="j-step">
+          <div class="j-node future">→</div>
+          <div class="j-content">
+            <div class="j-year">2026–2027</div>
+            <div class="j-headline">The platform goes live</div>
+            <div class="j-detail">Contracts, background checks, AI agents, and CRM launch inside the broker workflow. Volume inflects as adoption compounds.</div>
+            <span class="j-tag tag-target">Building now</span>
+          </div>
+        </div>
+
+        <div class="j-step">
+          <div class="j-node future" style="border-color:rgba(0,199,177,0.6); color:var(--teal);">⚡</div>
+          <div class="j-content">
+            <div class="j-year">2028</div>
+            <div class="j-headline">200,000 leases / year</div>
+            <div class="j-detail">MoradaUno is the infrastructure layer of Mexican residential rentals. Every transaction generates 4–6 monetization events. Series B on our terms.</div>
+            <span class="j-tag tag-target">The target</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right: what changes -->
+    <div class="reveal r2">
+      <div class="s-label" style="margin-bottom:24px;">What changes at 200K</div>
+      <div class="delta-list">
+
+        <div class="delta-item">
+          <div>
+            <div class="delta-from">30K</div>
+            <div class="delta-arrow">↓</div>
+            <div class="delta-to">200K</div>
+          </div>
+          <div>
+            <div class="delta-label">Annual transactions on platform</div>
+            <div class="delta-sub">From serving one moment in the deal (closing) to owning the full transaction lifecycle for 5.3% of Mexico's formal rental signings.</div>
+          </div>
+        </div>
+
+        <div class="delta-item">
+          <div>
+            <div class="delta-from">1×</div>
+            <div class="delta-arrow">↓</div>
+            <div class="delta-to">4–6×</div>
+          </div>
+          <div>
+            <div class="delta-label">Revenue events per transaction</div>
+            <div class="delta-sub">Contract → background check → rent guarantee → rent advance → insurance. Each layer stacks on the one before it.</div>
+          </div>
+        </div>
+
+        <div class="delta-item">
+          <div>
+            <div class="delta-from">Low</div>
+            <div class="delta-arrow">↓</div>
+            <div class="delta-to">High</div>
+          </div>
+          <div>
+            <div class="delta-label">Switching cost for brokers</div>
+            <div class="delta-sub">Today we're a vendor. At 200K, we're the system of record. Contracts, client history, and documents all live with us.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: TAM / SAM ═══ -->
+<section class="section" id="market">
+  <div class="s-label">TAM / SAM / SOM</div>
+  <h2 class="s-title reveal">3.8 million formal leases per year. We currently touch 20,000 of them.</h2>
+  <p class="s-body reveal r1">Mexico has 7 million rental transactions per year. 54% — 3.8M — have a formal lease agreement. That's our universe: the segment where a contract exists, a broker or landlord needs closing tools, and technology is relevant. The other 46% is informal and genuinely out of reach for now.</p>
+
+  <div class="tam-layout">
+
+    <!-- TAM Bars -->
+    <div class="reveal r1">
+      <div class="tam-bars">
+
+        <div class="tam-bar-row">
+          <div class="tbr-header">
+            <div>
+              <div class="tbr-label" style="color:rgba(177,78,181,0.5);">TAM — Total Formal Rental Market</div>
+              <div class="tbr-sub">7M total units/yr × 54% with formal lease = 3.8M transactions</div>
+            </div>
+            <div class="tbr-val">3.8M <span style="font-size:14px; color:var(--ash);">leases/yr</span></div>
+          </div>
+          <div class="tbr-track">
+            <div class="tbr-fill" style="width:100%; background:rgba(103,30,117,0.2);"></div>
+          </div>
+          <!-- Broker / DIY split bar -->
+          <div style="display:flex; gap:4px; margin-top:8px;">
+            <div style="flex:8; height:6px; border-radius:3px 0 0 3px; background:rgba(177,78,181,0.4);" title="80% brokers"></div>
+            <div style="flex:2; height:6px; border-radius:0 3px 3px 0; background:rgba(0,199,177,0.4);" title="20% DIY"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-top:6px;">
+            <span style="font-size:11px; color:var(--purple); font-weight:600;">80% via brokers — 3.04M</span>
+            <span style="font-size:11px; color:#009e8d; font-weight:600;">20% DIY landlords — 760K</span>
+          </div>
+        </div>
+
+        <div class="tam-bar-row">
+          <div class="tbr-header">
+            <div>
+              <div class="tbr-label" style="color:rgba(177,78,181,0.7);">SAM — Our Active Markets</div>
+              <div class="tbr-sub">Top 8 metros · broker network already deployed · DIY reachable digitally</div>
+            </div>
+            <div class="tbr-val">~1.5M <span style="font-size:14px; color:var(--ash);">leases/yr</span></div>
+          </div>
+          <div class="tbr-track">
+            <div class="tbr-fill" style="width:40%; background:rgba(177,78,181,0.4);"></div>
+          </div>
+          <div style="margin-top:6px; font-size:11px; color:var(--ash);">
+            At $350 blended ARPT → <strong style="color:var(--purple);">$525M revenue opportunity</strong>
+          </div>
+        </div>
+
+        <div class="tam-bar-row">
+          <div class="tbr-header">
+            <div>
+              <div class="tbr-label" style="color:var(--lila);">SOM — Obtainable by 2030</div>
+              <div class="tbr-sub">30% of SAM at full platform execution across both channels</div>
+            </div>
+            <div class="tbr-val">~450K <span style="font-size:14px; color:var(--ash);">leases/yr</span></div>
+          </div>
+          <div class="tbr-track">
+            <div class="tbr-fill" style="width:12%; background:var(--lila);"></div>
+          </div>
+          <div style="margin-top:6px; font-size:11px; color:var(--ash);">
+            At $350 ARPT → <strong style="color:var(--purple);">~$158M revenue ceiling</strong>
+          </div>
+        </div>
+
+        <div class="tam-bar-row" style="padding:20px; border-radius:10px; background:rgba(0,199,177,0.06); border:1px solid rgba(0,199,177,0.2);">
+          <div class="tbr-header">
+            <div>
+              <div class="tbr-label" style="color:var(--teal);">MoradaUno — 2028 Target</div>
+              <div class="tbr-sub">5.3% of formal market · 2 channels · same closing stack</div>
+            </div>
+            <div class="tbr-val" style="color:var(--teal);">200K <span style="font-size:14px; color:rgba(0,199,177,0.5);">leases/yr</span></div>
+          </div>
+          <div class="tbr-track" style="background:rgba(0,199,177,0.1);">
+            <div class="tbr-fill" style="width:44%; background:var(--teal);"></div>
+          </div>
+          <div style="margin-top:6px; font-size:11px; color:rgba(0,199,177,0.5);">
+            44% of our SOM — significant room to grow beyond 2028
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="reveal r2">
+      <div class="tam-legend">
+
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(177,78,181,0.4);"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div class="tl-name">TAM</div>
+              <div class="tl-num">3.8M leases/yr</div>
+            </div>
+            <div class="tl-desc">Mexico has 7M rental transactions per year. 54% have a formal lease — that's 3.8M. At $850/month average rent, this represents <strong style="color:var(--purple);">$38.8B in annual rent flow</strong>. The informal 46% is genuinely out of reach: no contract, no broker, no enforcement hook.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(177,78,181,0.6);"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div class="tl-name">Two channels</div>
+              <div class="tl-num" style="font-size:18px; line-height:1.3;">3.04M brokers<br>760K DIY</div>
+            </div>
+            <div class="tl-desc">80% of formal leases go through brokers — our existing distribution. The remaining 20% are DIY landlords who need the same closing tools with no intermediary. Both channels. Same platform. Two acquisition paths to the same 200K.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--lila);"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div class="tl-name">SAM</div>
+              <div class="tl-num">~1.5M leases/yr</div>
+            </div>
+            <div class="tl-desc">Top 8 metros where our broker network operates, plus DIY landlords reachable digitally. At $350 blended ARPT across all product layers, this represents a <strong style="color:var(--purple);">$525M annual revenue opportunity</strong>.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--teal);"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div class="tl-name">MoradaUno 2028</div>
+              <div class="tl-num" style="color:var(--teal);">200K = 5.3%</div>
+            </div>
+            <div class="tl-desc">Our 200K target is just 5.3% of the formal market — not a moonshot. We currently touch 20K, or 0.5%. Getting to 5.3% is a real execution challenge, not a market size challenge.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tam-note">
+        <div class="tam-note-icon">💡</div>
+        <div class="tam-note-text">
+          MoradaUno doesn't need to <em>create</em> these transactions — <strong>they already happen</strong>. 3.8M leases are signed in Mexico every year with or without us. Our job is to become the infrastructure they run through. The DIY channel means we're not solely dependent on broker adoption to get there.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: HOW WE GET THERE ═══ -->
+<section class="section" id="howwegetthere">
+  <div class="s-label">How We Get There</div>
+  <h2 class="s-title reveal">One platform. Every step of the rental transaction.</h2>
+  <p class="s-body reveal r1">Brokers today use MoradaUno for one thing: the rent guarantee. The OS expands that relationship across the entire deal lifecycle — so we're not a product they buy, but the platform they run on.</p>
+
+  <div class="flywheel-wrapper">
+
+    <!-- Layers -->
+    <div class="reveal r1">
+      <div class="s-label" style="margin-bottom:20px;">What the platform covers</div>
+      <div class="layers-stack">
+
+        <div class="layer layer-1">
+          <div class="layer-icon">🤝</div>
+          <div class="layer-body">
+            <div class="layer-name">AI Matchmaking</div>
+            <div class="layer-desc">Broker inventory aggregation → AI-powered tenant matching. Reduce time-to-close from 3 weeks to 3 days.</div>
+          </div>
+          <div class="layer-status ls-build">Building</div>
+        </div>
+
+        <div class="layer layer-2">
+          <div class="layer-icon">🤖</div>
+          <div class="layer-body">
+            <div class="layer-name">AI Lead Agents</div>
+            <div class="layer-desc">Inbound qualification + cold lead reactivation. 10× broker productivity without hiring.</div>
+          </div>
+          <div class="layer-status ls-build">Building</div>
+        </div>
+
+        <div class="layer layer-3">
+          <div class="layer-icon">📋</div>
+          <div class="layer-body">
+            <div class="layer-name">LegalTech — Contracts</div>
+            <div class="layer-desc">Auto-generate legally valid lease agreements. NOM-151 eSignature. 200K contracts/year target.</div>
+          </div>
+          <div class="layer-status ls-build">Deployed internally</div>
+        </div>
+
+        <div class="layer layer-4">
+          <div class="layer-icon">🔍</div>
+          <div class="layer-body">
+            <div class="layer-name">Tenant Screening</div>
+            <div class="layer-desc">Buró de Crédito-integrated tenant screening embedded in the closing flow. Instant, no vendor-switching.</div>
+          </div>
+          <div class="layer-status ls-live">Live — automatic screening in progress</div>
+        </div>
+
+        <div class="layer layer-5">
+          <div class="layer-icon">🛡️</div>
+          <div class="layer-body">
+            <div class="layer-name">Rent Guarantee</div>
+            <div class="layer-desc">Our founding product. $10M run-rate revenue. The financial anchor of the entire platform.</div>
+          </div>
+          <div class="layer-status ls-live">Live — $10M</div>
+        </div>
+
+        <div class="layer layer-6">
+          <div class="layer-icon">📊</div>
+          <div class="layer-body">
+            <div class="layer-name">CRM & Lifecycle</div>
+            <div class="layer-desc">Renewals, payments, owner reporting, maintenance. The system of record for the entire tenancy.</div>
+          </div>
+          <div class="layer-status ls-road">Roadmap</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right: broker activation logic -->
+    <div class="reveal r2">
+      <div class="s-label" style="margin-bottom:24px;">How 10K brokers become 200K transactions</div>
+      <div class="activation-flow">
+
+        <div class="af-step">
+          <div class="af-num">1</div>
+          <div class="af-content">
+            <div class="af-title">Brokers already trust us</div>
+            <div class="af-desc">5,000 active brokers already use MoradaUno. We need to double that to 10K — and give every broker a reason to run more of their business through us.</div>
+          </div>
+        </div>
+        <div class="af-connector"></div>
+
+        <div class="af-step">
+          <div class="af-num">2</div>
+          <div class="af-content">
+            <div class="af-title">Freemium contracts as the hook</div>
+            <div class="af-desc">100K contracts/year offered free or near-free. Brokers adopt for the convenience. Every free contract is a warm lead for every other product.</div>
+          </div>
+        </div>
+        <div class="af-connector"></div>
+
+        <div class="af-step">
+          <div class="af-num">3</div>
+          <div class="af-content">
+            <div class="af-title">Products attach inside the workflow</div>
+            <div class="af-desc">Background checks, guarantees, and deposit replacement appear as one-click upsells at the right moment in the closing flow. No separate vendor, no friction.</div>
+          </div>
+        </div>
+        <div class="af-connector"></div>
+
+        <div class="af-step">
+          <div class="af-num">4</div>
+          <div class="af-content">
+            <div class="af-title">CRM makes switching costs real</div>
+            <div class="af-desc">Once a broker's full client history, contracts, and renewal schedule live on our platform, leaving means losing institutional memory. Switching cost compounds with every deal closed.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="broker-bar">
+        <div class="bb-item">
+          <div class="bb-val">5<em>K</em></div>
+          <div class="bb-key">Brokers today</div>
+        </div>
+        <div class="bb-div"></div>
+        <div class="bb-item">
+          <div class="bb-val">10<em>K</em></div>
+          <div class="bb-key">Target broker network — 2×</div>
+        </div>
+        <div class="bb-div"></div>
+        <div class="bb-item">
+          <div class="bb-val">20<em>K</em></div>
+          <div class="bb-key">Transactions today</div>
+        </div>
+        <div class="bb-div"></div>
+        <div class="bb-item">
+          <div class="bb-val" style="color:var(--lila);">200<em>K</em></div>
+          <div class="bb-key">Target — 10× transaction growth</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: THE UNLOCK ═══ -->
+<section class="section" id="unlock">
+  <div class="unlock-bg"></div>
+  <div class="s-label">What 200K Transactions Enables</div>
+  <h2 class="s-title reveal">Controlling the transaction isn't the destination. It's the launchpad.</h2>
+  <p class="unlock-intro reveal r1">
+    At 200K transactions, MoradaUno becomes something qualitatively different. <strong>Not just a platform — infrastructure.</strong> The kind of position that makes financial products cheaper to offer, data more valuable to sell, and competitors irrelevant to build against.
+  </p>
+
+  <div class="unlock-grid reveal r2">
+
+    <div class="ug-card">
+      <div class="ug-icon">💳</div>
+      <div class="ug-title">Financial Products at Scale</div>
+      <div class="ug-body">Rent advance, deposit replacement, landlord financing, and tenant credit products all require the underwriting data and distribution that only comes from owning the transaction. At 200K leases, these are plug-and-play revenue lines — not experiments.</div>
+      <div>
+        <div class="ug-number" style="color:var(--peach);">$27M</div>
+        <div class="ug-sub">Financial layer revenue potential</div>
+      </div>
+    </div>
+
+    <div class="ug-card">
+      <div class="ug-icon">🧠</div>
+      <div class="ug-title">A data moat nobody can replicate</div>
+      <div class="ug-body">200K transactions/year means real-time visibility into rental pricing, vacancy, tenant quality, and payment behavior — by neighborhood, by broker, by property type. This is what makes our financial products defensible: we underwrite risk better than any bank or competitor because we've seen more transactions. A new entrant starting today would need years to close that gap.</div>
+      <div>
+        <div class="ug-number" style="color:var(--sky);">5+ yrs</div>
+        <div class="ug-sub">To replicate from scratch</div>
+      </div>
+    </div>
+
+    <div class="ug-card">
+      <div class="ug-icon">🔄</div>
+      <div class="ug-title">Buy-Sell as a Natural Extension</div>
+      <div class="ug-body">Tenants become buyers. Landlords sell. We already know who they are, their financial profile, and when the moment is right. Facilitating buy-sell transactions requires no new customer acquisition — just activating signals we already have.</div>
+      <div>
+        <div class="ug-number" style="color:var(--teal);">$2K+</div>
+        <div class="ug-sub">Per facilitated buy-sell deal</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ SECTION 6: SERIES B SETUP ═══ -->
+<section class="section" id="seriesb">
+  <div class="s-label">The Path to Series B</div>
+  <h2 class="s-title reveal">The internal round accelerates and materializes the Series B we actually want.</h2>
+
+  <div class="sb-layout">
+
+    <div>
+      <p class="sb-statement reveal">"Given current VC dynamics, it makes no sense to run down our $2M without changing trajectory and waiting for a Series B to materialize."</p>
+
+      <div class="sb-items reveal r1">
+
+        <div class="sb-item">
+          <div class="sb-bullet">📍</div>
+          <div class="sb-text">
+            <div class="sb-head">We're already at the right starting point</div>
+            <div class="sb-desc">$2M cash, near-breakeven, $10M run-rate growing 50% YoY. The $1.5M internal round is acceleration capital, not survival capital.</div>
+          </div>
+        </div>
+
+        <div class="sb-item">
+          <div class="sb-bullet">🏗️</div>
+          <div class="sb-text">
+            <div class="sb-head">The platform investment proves the thesis before we raise</div>
+            <div class="sb-desc">By the time we sit in front of a Series B investor, we will have 80K+ contracts/year live, demonstrated multi-product attach rates, and real financial product traction.</div>
+          </div>
+        </div>
+
+        <div class="sb-item">
+          <div class="sb-bullet">⚡</div>
+          <div class="sb-text">
+            <div class="sb-head">The compounding kicks in at 100K, not 200K</div>
+            <div class="sb-desc">Once the platform flywheel is spinning — brokers using contracts, checks, and CRM as daily workflow — growth accelerates without proportional cost increase. That inflection point is the Series B milestone.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARR ramp -->
+    <div class="reveal r2">
+      <div class="s-label" style="color:var(--purple); margin-bottom:24px;">Revenue run-rate trajectory</div>
+      <div class="arr-ramp">
+
+        <div class="arr-year">
+          <div class="ay-year">2025</div>
+          <div class="ay-bar-wrap"><div class="ay-bar" style="width:14%; background:rgba(177,78,181,0.4);"></div></div>
+          <div class="ay-val">$10M</div>
+        </div>
+
+        <div class="arr-year">
+          <div class="ay-year">2026</div>
+          <div class="ay-bar-wrap"><div class="ay-bar" style="width:28%; background:var(--lila);"></div></div>
+          <div class="ay-val">$13M <span style="font-size:12px; color:var(--ash);">→ $20M</span></div>
+        </div>
+
+        <div class="arr-year">
+          <div class="ay-year">2027</div>
+          <div class="ay-bar-wrap"><div class="ay-bar" style="width:53%; background:linear-gradient(90deg, var(--lila), var(--purple));"></div></div>
+          <div class="ay-val">$38M</div>
+        </div>
+
+        <div class="arr-year">
+          <div class="ay-year">2028</div>
+          <div class="ay-bar-wrap"><div class="ay-bar" style="width:100%; background:linear-gradient(90deg, var(--purple), var(--lila));"></div></div>
+          <div class="ay-val"><em>$70M+</em></div>
+        </div>
+
+      </div>
+
+      <div class="arr-note">
+        The 2026→2027 step is the critical inflection. <strong>That's when platform adoption converts volume growth from linear to exponential.</strong> Contracts and CRM create the lock-in; financial products harvest the margin. The $1.5M we raise now funds precisely that jump.
+      </div>
+
+      <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="padding:16px 20px; border-radius:8px; background:var(--fog); border:1px solid var(--border); flex:1; min-width:140px;">
+          <div style="font-family:'Instrument Serif', serif; font-size:28px; color:var(--ink); line-height:1;">$53M</div>
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ash); margin-top:4px;">Base case run-rate</div>
+        </div>
+        <div style="width:1px; background:var(--border);"></div>
+        <div style="padding:16px 20px; border-radius:8px; background:rgba(103,30,117,0.05); border:1px solid rgba(103,30,117,0.12); flex:1; min-width:140px;">
+          <div style="font-family:'Instrument Serif', serif; font-size:28px; color:var(--purple); line-height:1;">$70M+</div>
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ash); margin-top:4px;">Full expansion run-rate</div>
+        </div>
+        <div style="width:1px; background:var(--border);"></div>
+        <div style="padding:16px 20px; border-radius:8px; background:rgba(0,199,177,0.05); border:1px solid rgba(0,199,177,0.15); flex:1; min-width:140px;">
+          <div style="font-family:'Instrument Serif', serif; font-size:28px; color:#009e8d; line-height:1;">$90M+</div>
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ash); margin-top:4px;">If vol &gt; 200K</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><svg style="height:20px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 683.4 83.54"><g ><path fill="rgba(255,255,255,0.45)" d="m1.21,74.27l39.18-40.22L7.03,1.25C4.44-1.42,0,.47,0,4.24v73.03s.01.09.01.14c-.04-1.09.32-2.22,1.2-3.13"/><path fill="rgba(255,255,255,0.45)" d="m73.75,1.25l-33.36,32.81,39.18,40.22c.88.91,1.24,2.04,1.2,3.13,0-.05.01-.09.01-.14V4.24c0-3.77-4.44-5.66-7.03-2.99"/><path fill="rgba(255,255,255,0.45)" d="m79.57,74.27l-39.18-40.22L1.21,74.27c-.89.91-1.25,2.04-1.2,3.13,0,.18.02.35.05.53.02.11.03.21.06.32.03.13.07.25.11.37.06.19.14.37.22.54.06.11.11.23.18.33.05.09.11.17.17.25.1.14.21.29.34.42.03.04.06.07.1.11.36.36.78.66,1.25.86.03.01.05.02.08.03.2.08.41.15.63.2.05.01.1.03.15.04.24.05.49.08.75.08.01,0,.02,0,.03,0h72.53s.02,0,.03,0c.26,0,.51-.03.75-.08.05,0,.1-.02.15-.04.22-.05.43-.12.63-.2.03-.01.05-.02.08-.03.47-.21.89-.5,1.25-.86.03-.03.06-.07.09-.11.12-.13.23-.27.34-.42.06-.08.12-.17.17-.25.07-.11.12-.22.18-.33.09-.17.16-.35.22-.54.04-.12.08-.25.11-.37.03-.11.04-.21.06-.32.03-.17.05-.35.05-.53.04-1.09-.32-2.22-1.2-3.13"/><path fill="rgba(255,255,255,0.45)" d="m178.54,9.41v70.46c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35v-39.43c0-1.47-2.03-1.88-2.59-.51l-16.66,40.46c-.21.5-.7.83-1.24.83h-9.31c-.54,0-1.04-.33-1.24-.83l-16.77-40.5c-.56-1.36-2.59-.96-2.59.52v39.47c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V9.41c0-.74.6-1.35,1.35-1.35h14.43c.54,0,1.03.32,1.24.82l21.68,50.68c.47,1.09,2.01,1.09,2.48,0l21.68-50.68c.21-.5.7-.82,1.24-.82h14.32c.74,0,1.35.6,1.35,1.35Z"/><path fill="rgba(255,255,255,0.45)" d="m200.55,78.44c-4.47-2.48-7.98-5.99-10.53-10.53-2.55-4.54-3.83-9.78-3.83-15.72s1.31-11.18,3.93-15.72c2.62-4.54,6.2-8.05,10.74-10.53,4.54-2.48,9.61-3.72,15.2-3.72s10.65,1.24,15.2,3.72c4.54,2.48,8.12,5.99,10.74,10.53,2.62,4.54,3.93,9.78,3.93,15.72s-1.34,11.18-4.03,15.72c-2.69,4.54-6.32,8.05-10.9,10.53-4.58,2.48-9.69,3.72-15.35,3.72s-10.62-1.24-15.09-3.72Zm22.59-11c2.34-1.29,4.21-3.23,5.61-5.82,1.4-2.59,2.09-5.73,2.09-9.43,0-5.52-1.45-9.76-4.35-12.73-2.9-2.97-6.45-4.45-10.64-4.45s-7.7,1.49-10.53,4.45c-2.83,2.97-4.25,7.22-4.25,12.73s1.38,9.76,4.14,12.73c2.76,2.97,6.24,4.45,10.43,4.45,2.66,0,5.15-.64,7.49-1.94Z"/><path fill="rgba(255,255,255,0.45)" d="m275.65,24.94c2.67-1.53,5.67-2.39,9.01-2.58.77-.04,1.42.6,1.42,1.37v14.18l-3.88-.19c-4.61,0-8.09,1.08-10.43,3.25-2.34,2.17-3.51,5.94-3.51,11.32v27.58c0,.74-.6,1.35-1.35,1.35h-11.98c-.74,0-1.35-.6-1.35-1.35V24.5c0-.74.6-1.35,1.35-1.35h11.98c.74,0,1.35.6,1.35,1.35v7.67c1.88-3.07,4.35-5.48,7.39-7.23Z"/><path fill="rgba(255,255,255,0.45)" d="m292.52,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="rgba(255,255,255,0.45)" d="m360.43,36.36c2.34-4.54,5.54-8.03,9.59-10.48,4.07-2.45,8.59-3.68,13.57-3.67,3.44,0,6.89.73,10.03,2.13,3.76,1.68,6.72,3.97,8.88,6.88V5.01c0-.74.6-1.35,1.35-1.35h12.19c.74,0,1.35.6,1.35,1.35v74.86c0,.74-.6,1.35-1.35,1.35h-12.19c-.74,0-1.35-.6-1.35-1.35v-7.25c-1.82,2.87-4.37,5.17-7.65,6.92s-7.09,2.62-11.42,2.62c-4.89,0-9.37-1.26-13.42-3.77-4.05-2.51-7.25-6.06-9.59-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="rgba(255,255,255,0.45)" d="m428.35,36.36c2.34-4.54,5.52-8.03,9.54-10.48,4.02-2.44,8.5-3.67,13.47-3.67,4.33,0,8.12.87,11.37,2.62,3.25,1.75,5.85,3.95,7.81,6.6v-6.93c0-.74.6-1.35,1.35-1.35h12.09c.74,0,1.35.6,1.35,1.35v55.37c0,.74-.6,1.35-1.35,1.35h-12.09c-.74,0-1.35-.6-1.35-1.35v-7.14c-1.89,2.73-4.49,4.98-7.81,6.76-3.32,1.78-7.15,2.67-11.48,2.67-4.89,0-9.35-1.26-13.36-3.77-4.02-2.51-7.2-6.06-9.54-10.64-2.34-4.58-3.51-9.83-3.51-15.77s1.17-11.07,3.51-15.62Zm40.09,6.66c-1.4-2.55-3.29-4.51-5.66-5.87-2.38-1.36-4.93-2.04-7.65-2.04s-5.24.66-7.54,1.99c-2.31,1.33-4.18,3.27-5.61,5.82-1.43,2.55-2.15,5.57-2.15,9.07s.72,6.55,2.15,9.17c1.43,2.62,3.32,4.63,5.66,6.03,2.34,1.4,4.84,2.1,7.49,2.1s5.28-.68,7.65-2.04c2.37-1.36,4.26-3.32,5.66-5.87,1.4-2.55,2.09-5.61,2.09-9.17s-.7-6.62-2.09-9.17Z"/><path fill="rgba(255,255,255,0.45)" d="m505.69,9.75c.55,0,1,.45,1,1v45.22c0,6.5,1.59,11.32,4.77,14.46,3.18,3.14,7.6,4.72,13.26,4.72s9.97-1.57,13.15-4.72c3.18-3.14,4.77-7.97,4.77-14.46V10.76c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v45.11c0,6.08-1.22,11.2-3.67,15.35-2.45,4.16-5.75,7.25-9.9,9.27-4.16,2.03-8.82,3.04-13.99,3.04s-9.84-1.01-13.99-3.04c-4.16-2.02-7.44-5.12-9.85-9.27-2.41-4.16-3.62-9.28-3.62-15.35V10.76c0-.55.45-1,1-1h7.54Z"/><path fill="rgba(255,255,255,0.45)" d="m609.93,29.08c4.33,4.23,6.5,10.32,6.5,18.29v32.85c0,.55-.45,1-1,1h-7.43c-.55,0-1-.45-1-1v-31.49c0-5.73-1.43-10.11-4.3-13.15-2.87-3.04-6.78-4.56-11.74-4.56s-9.03,1.57-12,4.72c-2.97,3.14-4.45,7.72-4.45,13.73v30.76c0,.55-.45,1-1,1h-7.54c-.55,0-1-.45-1-1V24.79c0-.55.45-1,1-1h7.54c.55,0,1,.45,1,1v7.17c1.89-2.94,4.45-5.21,7.71-6.81,3.25-1.61,6.83-2.41,10.74-2.41,6.99,0,12.65,2.12,16.98,6.34Z"/><path fill="rgba(255,255,255,0.45)" d="m639.32,78.5c-4.37-2.44-7.79-5.92-10.27-10.43-2.48-4.51-3.72-9.73-3.72-15.67s1.28-11.06,3.83-15.56c2.55-4.51,6.03-7.96,10.43-10.38,4.4-2.41,9.33-3.62,14.78-3.62s10.37,1.2,14.78,3.62c4.4,2.41,7.88,5.85,10.43,10.32,2.55,4.47,3.82,9.68,3.82,15.62s-1.31,11.16-3.93,15.67c-2.62,4.51-6.17,7.98-10.64,10.43-4.47,2.45-9.43,3.67-14.88,3.67s-10.25-1.22-14.62-3.67Zm24.26-7.13c3-1.61,5.43-4.02,7.28-7.23,1.85-3.21,2.78-7.13,2.78-11.74s-.91-8.52-2.73-11.74c-1.82-3.21-4.19-5.61-7.13-7.18-2.94-1.57-6.11-2.36-9.54-2.36s-6.69.79-9.59,2.36c-2.9,1.57-5.22,3.97-6.97,7.18-1.75,3.21-2.62,7.13-2.62,11.74s.85,8.63,2.57,11.84c1.71,3.21,4,5.61,6.87,7.18,2.86,1.57,6.01,2.36,9.43,2.36s6.64-.8,9.64-2.41Z"/></g></svg></div>
+  <div class="footer-meta">Confidential — Board distribution — 2026</div>
+</footer>
+
+<script>
+// Password gate
+const PASSWORD = 'morada2026';
+
+function checkPassword() {
+  const input = document.getElementById('gate-input');
+  if (input.value.toLowerCase() === PASSWORD) {
+    document.getElementById('gate').style.display = 'none';
+    sessionStorage.setItem('mu_auth', '1');
+  } else {
+    input.classList.add('error');
+    input.value = '';
+    input.placeholder = 'Incorrect — try again';
+    setTimeout(() => {
+      input.classList.remove('error');
+      input.placeholder = 'Access code';
+    }, 1200);
+  }
+}
+
+document.getElementById('gate-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkPassword();
+});
+
+// Persist auth within session
+if (sessionStorage.getItem('mu_auth') === '1') {
+  document.getElementById('gate').style.display = 'none';
+}
+
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
